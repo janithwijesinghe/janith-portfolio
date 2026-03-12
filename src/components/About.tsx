@@ -5,12 +5,12 @@ export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const stats = [
-    { icon: Clock, value: 8, suffix: '+', label: 'Years of Experience' },
-    { icon: Video, value: 1.7M+ subscribers, suffix: '+', label: 'Built  YouTube channels' },
-    { icon: Award, value: 1000, suffix: '+', label: 'Videos Produced' },
-    { icon: Users, value: 200, suffix: '+', label: 'Clients Served' },
-  ];
+ const stats = [
+  { icon: Clock, value: 8, suffix: '+', label: 'Years of Experience' },
+  { icon: Video, value: 1.7, suffix: 'M+', label: 'YouTube Subscribers Built' },
+  { icon: Award, value: 160, suffix: '+', label: 'Client Reviews (Fiverr & Upwork)' },
+  { icon: Users, value: 10, suffix: 'K+', label: 'TikTok Followers Grown Organically' },
+];
 
   const [counters, setCounters] = useState(stats.map(() => 0));
 
