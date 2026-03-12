@@ -78,11 +78,11 @@ export default function About() {
             
             <div className="text-center">
               
-              <img 
-                src="public/images/social-media.png"
-                alt="Social Media Manager"
-                className="w-32 h-32 mx-auto mb-4 object-contain"
-              />
+             <img
+  src="/images/social-media.png"
+  alt="Social Media Manager"
+  className="w-32 h-32 mx-auto mb-4 object-contain"
+/>
 
               <p className="text-cyan-400 font-semibold">Social Media Manager</p>
 
