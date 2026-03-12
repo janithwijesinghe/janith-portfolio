@@ -94,11 +94,7 @@ export default function About() {
               and digital analytics, with a strong technical background as a B.Sc. (Hons) IT graduate from the University of Moratuwa.
             </p>
 
-            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-             My expertise spans social media strategy, video production, visual storytelling, and programming. With a background in Information Technology, 
-             I combine creative content creation with technical development skills to build impactful digital experiences. 
-             I believe in the power of visual storytelling and technology to connect, inspire, and captivate audiences across modern digital platforms.
-            </p>
+            
 
             <div className="mb-8">
               <h3 className="text-2xl font-semibold mb-4 text-purple-400">Creative Philosophy</h3>
