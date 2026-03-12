@@ -81,7 +81,7 @@ export default function About() {
              <img
   src="/images/social-media.png"
   alt="Social Media Manager"
-  className="w-48 h-64 mx-auto mb-4 object-contain"
+  className="w-80 h-120 mx-auto mb-4 object-contain"
 />
 
               <p className="text-cyan-400 font-semibold">Social Media Manager</p>
