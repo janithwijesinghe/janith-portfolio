@@ -68,20 +68,31 @@ export default function About() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#1a1a2e] to-[#0a0a0f]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-          <div className={`${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl" />
-              <div className="relative glass-panel p-8 rounded-3xl">
-                <div className="w-full aspect-square bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-2xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-8xl mb-4">🎬</div>
-                    <p className="text-cyan-400 font-semibold">Social Media Manager</p>
-                  </div>
-                </div>
-              </div>
+  <div className="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+    <div className={`${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
+      <div className="relative">
+        <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl" />
+        
+        <div className="relative glass-panel p-8 rounded-3xl">
+          <div className="w-full aspect-square bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-2xl flex items-center justify-center">
+            
+            <div className="text-center">
+              
+              <img 
+                src="/social-media.png"
+                alt="Social Media Manager"
+                className="w-32 h-32 mx-auto mb-4 object-contain"
+              />
+
+              <p className="text-cyan-400 font-semibold">Social Media Manager</p>
+
             </div>
+
           </div>
+        </div>
+
+      </div>
+    </div>
 
           <div className={`${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
             <h2 className="text-5xl font-bold mb-6">
