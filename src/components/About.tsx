@@ -7,7 +7,7 @@ export default function About() {
 
   const stats = [
     { icon: Clock, value: 8, suffix: '+', label: 'Years of Experience' },
-    { icon: Video, value: 500, suffix: '+', label: 'Projects Completed' },
+    { icon: Video, value: 1.7M+ subscribers, suffix: '+', label: 'Built  YouTube channels' },
     { icon: Award, value: 1000, suffix: '+', label: 'Videos Produced' },
     { icon: Users, value: 200, suffix: '+', label: 'Clients Served' },
   ];
