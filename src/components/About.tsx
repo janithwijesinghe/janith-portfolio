@@ -76,7 +76,7 @@ export default function About() {
                 <div className="w-full aspect-square bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-2xl flex items-center justify-center">
                   <div className="text-center">
                     <div className="text-8xl mb-4">🎬</div>
-                    <p className="text-cyan-400 font-semibold">Visual Storyteller</p>
+                    <p className="text-cyan-400 font-semibold">Social Media Manager</p>
                   </div>
                 </div>
               </div>
@@ -89,15 +89,15 @@ export default function About() {
             </h2>
 
             <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              A passionate creative professional specializing in animation, video editing, and motion graphics.
-              With over 8 years of experience in the creative industry, I've dedicated my career to transforming
-              concepts into compelling visual narratives.
+              Results-driven Social Media Manager with 8+ years of experience in digital marketing, content strategy, and audience growth. Built and managed 1.7M+ YouTube subscribers, 
+              handled 160+ international client projects through Fiverr and Upwork, and organically grew a 10K+ TikTok community. Skilled in social media strategy, video production, 
+              and digital analytics, with a strong technical background as a B.Sc. (Hons) IT graduate from the University of Moratuwa.
             </p>
 
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              My expertise spans across 2D and 3D animation, documentary production, and social media content
-              creation. I believe in the power of visual storytelling to connect, inspire, and captivate audiences
-              across all platforms.
+             My expertise spans social media strategy, video production, visual storytelling, and programming. With a background in Information Technology, 
+             I combine creative content creation with technical development skills to build impactful digital experiences. 
+             I believe in the power of visual storytelling and technology to connect, inspire, and captivate audiences across modern digital platforms.
             </p>
 
             <div className="mb-8">
