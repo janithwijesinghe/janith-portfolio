@@ -66,7 +66,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-1">Email</h4>
-                    <p className="text-gray-400">janith@example.com</p>
+                    <p className="text-gray-400">janithjayarisi@gmail.com</p>
                   </div>
                 </div>
 
@@ -76,7 +76,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-1">WhatsApp</h4>
-                    <p className="text-gray-400">+1 (555) 123-4567</p>
+                    <p className="text-gray-400">+94714352799</p>
                   </div>
                 </div>
               </div>
@@ -99,8 +99,8 @@ export default function Contact() {
 
               <div className="mt-8 p-6 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-2xl border border-cyan-500/20">
                 <p className="text-gray-300 leading-relaxed">
-                  I'm always excited to collaborate on new projects. Whether you need animation,
-                  video editing, or motion graphics, let's create something amazing together.
+                I’m always excited to collaborate on new projects. Whether you need animation, video editing, motion graphics, 
+                  or website development, let’s create something amazing together.
                 </p>
               </div>
             </div>
