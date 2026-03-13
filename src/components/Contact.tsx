@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Mail, MessageSquare, Send, CheckCircle } from 'lucide-react';
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,11 +27,29 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+
+    emailjs.send(
+      "service_2n1zpjl",
+      "service_2n1zpjl",
+      {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      },
+      "O9ubO3JIr-WR1wwjw"
+    ).then(
+      () => {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', message: '' });
+        }, 3000);
+      },
+      (error) => {
+        console.log("FAILED...", error);
+        alert("Failed to send message. Please try again.");
+      }
+    );
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -55,13 +74,15 @@ export default function Contact() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          
+          {/* LEFT PANEL */}
           <div className={`${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
             <div className="glass-panel p-8 rounded-3xl h-full">
               <h3 className="text-3xl font-bold mb-6">Get In Touch</h3>
 
               <div className="space-y-6 mb-8">
                 <div className="flex items-start gap-4 group cursor-pointer">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -71,106 +92,91 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4 group cursor-pointer">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-cyan-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-cyan-500 flex items-center justify-center">
                     <MessageSquare className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-1">WhatsApp</h4>
                     <a
- href="https://wa.me/94714352799"
- target="_blank"
- className="text-gray-400 hover:text-green-400"
->
- +94714352799
-</a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="font-semibold text-lg mb-4">Follow Me</h4>
-                <div className="flex gap-4">
-                  {['YouTube', 'Instagram', 'LinkedIn', 'Behance'].map((platform) => (
-                    <a
-                      key={platform}
-                      href="#"
-                      className="w-12 h-12 rounded-xl glass-panel flex items-center justify-center hover:bg-cyan-500/20 hover:border-cyan-500 transition-all duration-300 transform hover:scale-110"
-                      aria-label={platform}
+                      href="https://wa.me/94714352799"
+                      target="_blank"
+                      className="text-gray-400 hover:text-green-400"
                     >
-                      <span className="text-sm font-semibold">{platform[0]}</span>
+                      +94714352799
                     </a>
-                  ))}
+                  </div>
                 </div>
               </div>
 
               <div className="mt-8 p-6 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-2xl border border-cyan-500/20">
                 <p className="text-gray-300 leading-relaxed">
-                I’m always excited to collaborate on new projects. Whether you need animation, video editing, motion graphics, 
-                  or website development, let’s create something amazing together.
+                  I’m always excited to collaborate on new projects. Whether you need animation, video editing,
+                  motion graphics, or website development, let’s create something amazing together.
                 </p>
               </div>
             </div>
           </div>
 
+          {/* FORM */}
           <div className={`${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
             <div className="glass-panel p-8 rounded-3xl">
+
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
+
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-300">
+                    <label className="block text-sm font-semibold mb-2 text-gray-300">
                       Your Name
                     </label>
                     <input
                       type="text"
-                      id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-[#0a0a0f] border border-gray-700 rounded-xl focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                      className="w-full px-4 py-3 bg-[#0a0a0f] border border-gray-700 rounded-xl focus:border-cyan-500 focus:outline-none"
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-300">
+                    <label className="block text-sm font-semibold mb-2 text-gray-300">
                       Email Address
                     </label>
                     <input
                       type="email"
-                      id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-[#0a0a0f] border border-gray-700 rounded-xl focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300"
+                      className="w-full px-4 py-3 bg-[#0a0a0f] border border-gray-700 rounded-xl focus:border-cyan-500 focus:outline-none"
                       placeholder="john@example.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-300">
+                    <label className="block text-sm font-semibold mb-2 text-gray-300">
                       Your Message
                     </label>
                     <textarea
-                      id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 bg-[#0a0a0f] border border-gray-700 rounded-xl focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 bg-[#0a0a0f] border border-gray-700 rounded-xl focus:border-cyan-500 focus:outline-none resize-none"
                       placeholder="Tell me about your project..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl font-semibold text-lg hover:shadow-[0_0_30px_rgba(0,217,255,0.6)] transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                    className="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl font-semibold text-lg flex items-center justify-center gap-2 hover:scale-105 transition"
                   >
                     <Send className="w-5 h-5" />
                     Send Message
                   </button>
+
                 </form>
               ) : (
                 <div className="flex flex-col items-center justify-center py-16">
@@ -183,8 +189,10 @@ export default function Contact() {
                   </p>
                 </div>
               )}
+
             </div>
           </div>
+
         </div>
       </div>
     </section>
