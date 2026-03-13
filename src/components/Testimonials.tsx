@@ -14,19 +14,19 @@ export default function Testimonials() {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      image: 'public/images/R1.PNG',
+      image: 'public/images/R1.png',
     },
     {
       id: 2,
-      image: 'public/images/R2.PNG',
+      image: 'public/images/R2.png',
     },
     {
       id: 3,
-      image: 'public/images/R3.PNG',
+      image: 'public/images/R3.png',
     },
     {
       id: 4,
-      image: 'public/images/R4.PNG',
+      image: 'public/images/R4.png',
     },
   ];
 
