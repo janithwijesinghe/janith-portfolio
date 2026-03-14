@@ -87,7 +87,15 @@ export default function Hero() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-     
+      <div className="container mx-auto px-6 z-20 relative">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="mb-8 fade-in-up">
+            <img
+              src="/logo.png"
+              alt="Janith Wijesinghe"
+              className="h-20 mx-auto mb-8 animate-float"
+            />
+          </div>
 
           <h1 className="text-6xl md:text-8xl font-bold mb-6 fade-in-up" style={{ animationDelay: '0.2s' }}>
             <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
