@@ -14,7 +14,7 @@ export default function Testimonials() {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      image: '/images/R1.png',
+      image: '/images/R1.PNG',
     },
     {
       id: 2,
@@ -76,7 +76,7 @@ export default function Testimonials() {
             }`}
             style={{ animationDelay: '0.2s' }}
           >
-            Real reviews from my Fiverr clients.
+            Reviews from my Fiverr clients.
           </p>
         </div>
 
