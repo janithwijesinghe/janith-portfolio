@@ -8,32 +8,32 @@ export default function CreativeProcess() {
   const steps = [
     {
       icon: Lightbulb,
-      title: 'Idea & Story',
-      description: 'Understanding your vision and crafting the narrative foundation.',
+      title: 'Strategy & Research',
+      description: 'Understanding your brand, target audience, and competitors to build an effective social media strategy.',
       color: 'from-yellow-500 to-orange-500',
     },
     {
       icon: Palette,
-      title: 'Concept Design',
-      description: 'Creating visual concepts, storyboards, and style frames.',
+      title: 'Content Planning',
+      description: 'Creating content calendars, planning posts, and developing ideas that align with your brand goals.',
       color: 'from-pink-500 to-purple-500',
     },
     {
       icon: Video,
-      title: 'Animation Production',
-      description: 'Bringing the designs to life through animation and motion.',
+      title: 'Content Creation',
+      description: 'Designing visuals, editing videos, writing captions, and preparing engaging content for each platform.',
       color: 'from-cyan-500 to-blue-500',
     },
     {
-      icon: Music,
-      title: 'Editing & Sound',
-      description: 'Fine-tuning visuals, adding effects, music, and sound design.',
+      icon: MessageCircle,
+      title: 'Publishing & Engagement',
+      description: 'Scheduling posts, managing accounts, responding to comments/messages, and interacting with the community.',
       color: 'from-green-500 to-cyan-500',
     },
     {
       icon: CheckCircle,
-      title: 'Final Delivery',
-      description: 'Delivering polished, production-ready content on time.',
+      title: 'Analytics & Optimization',
+      description: 'Analyzing performance, tracking growth, and optimizing strategies to improve reach and engagement.',
       color: 'from-purple-500 to-cyan-500',
     },
   ];
@@ -67,7 +67,7 @@ export default function CreativeProcess() {
             Creative <span className="glow-text-cyan">Process</span>
           </h2>
           <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            A streamlined workflow designed to transform ideas into captivating visual stories.
+            A strategic workflow designed to plan, create, and manage social media content that grows your brand and engages your audience.
           </p>
         </div>
 
