@@ -4,7 +4,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = ['Home', 'About', 'Services', 'Portfolio', 'Contact'];
-  const socialLinks = ['YouTube', 'Instagram', 'LinkedIn', 'Behance', 'Vimeo'];
+  const socialLinks = ['LinkedIn', 'fiverr', 'git'];
 
   return (
     <footer className="relative py-12 overflow-hidden border-t border-gray-800">
@@ -17,8 +17,8 @@ export default function Footer() {
               <img src="/logo.png" alt="Janith Wijesinghe" className="h-12" />
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Transforming ideas into captivating visual experiences through animation,
-              video editing, and creative storytelling.
+              Transforming ideas into engaging digital experiences through social media strategy, 
+              creative storytelling, video production, and technology.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -56,12 +56,12 @@ export default function Footer() {
             <div className="space-y-3 text-gray-400">
               <p>
                 <a href="mailto:janith@example.com" className="hover:text-cyan-400 transition-colors">
-                  janith@example.com
+                  janithjayarisi@gmail.com
                 </a>
               </p>
               <p>
                 <a href="tel:+15551234567" className="hover:text-cyan-400 transition-colors">
-                  +1 (555) 123-4567
+                  +94 714 352 799
                 </a>
               </p>
               <p className="text-sm">Available for freelance projects</p>
