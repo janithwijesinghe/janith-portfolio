@@ -75,24 +75,24 @@ export default function Portfolio() {
     },
     {
       id: 7,
-  title: 'Social media product video and post creation.',
-  category: 'Social Media',
+  title: 'Website Design & Development.',
+  category: 'Web Development',
   thumbnail: '/images/web1.png',
-  description: '2D character animation showcase',
+  description: 'Tour & Taxi Booking Website',
     },
     {
       id: 8,
-  title: 'Social media product video and post creation.',
-  category: 'Social Media',
+  title: 'Mobile Application.',
+  category: 'Web Development',
   thumbnail: '/images/web2.png',
-  description: '2D character animation showcase',
+  description: 'Rice Plant Disease Diagnosis App',
     },
      {
       id: 9,
-  title: 'Social media product video and post creation.',
-  category: 'Social Media',
+  title: 'Website Landing Page Design.',
+  category: 'Web Development',
   thumbnail: '/images/web3.png',
-  description: '2D character animation showcase',
+  description: 'Modern Looking Unique Page Design.',
     },
   ];
 
