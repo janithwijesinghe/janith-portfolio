@@ -87,31 +87,23 @@ export default function Hero() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-      <div className="container mx-auto px-6 z-20 relative">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="mb-8 fade-in-up">
-            <img
-              src="/logo.png"
-              alt="Janith Wijesinghe"
-              className="h-20 mx-auto mb-8 animate-float"
-            />
-          </div>
+     
 
           <h1 className="text-6xl md:text-8xl font-bold mb-6 fade-in-up" style={{ animationDelay: '0.2s' }}>
             <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
-              Creative Visual
+              Creative Digital
             </span>
             <br />
-            <span className="glow-text-cyan">Storytelling</span>
+            <span className="glow-text-cyan">Solutions</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-4 font-space fade-in-up" style={{ animationDelay: '0.4s' }}>
-            Animator | Video Editor | Motion Graphics Artist
+            Social Media Strategy | Video Editing | Web Development
           </p>
 
           <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12 fade-in-up" style={{ animationDelay: '0.6s' }}>
-            Transforming ideas into captivating visual experiences. With over 8 years of expertise in animation,
-            video production, and motion graphics, I bring stories to life through the art of creative storytelling.
+            Transforming ideas into engaging digital experiences. As a social media manager, video editor, and programmer, 
+            I combine creativity and technology to create impactful content, build digital solutions, and bring stories to life.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center fade-in-up" style={{ animationDelay: '0.8s' }}>
