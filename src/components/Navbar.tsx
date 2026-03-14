@@ -37,7 +37,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Janith Wijesinghe"
-              className="h-10 transform group-hover:scale-110 transition-transform duration-300"
+              className="h-10 transform group-hover:scale-200 transition-transform duration-300"
             />
           </a>
 
