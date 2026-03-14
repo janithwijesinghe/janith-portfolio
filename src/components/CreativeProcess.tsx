@@ -10,35 +10,35 @@ export default function CreativeProcess() {
       icon: Lightbulb,
       title: 'Strategy & Research',
       description:
-        'Understanding your brand, target audience, and competitors to build an effective social media strategy.',
+        'Analyze brand, audience, and competitors to build a strong social media strategy.',
       color: 'from-yellow-500 to-orange-500',
     },
     {
       icon: Palette,
       title: 'Content Planning',
       description:
-        'Creating content calendars, planning posts, and developing ideas that align with your brand goals.',
+        'Plan content calendars and ideas aligned with your brand goals.',
       color: 'from-pink-500 to-purple-500',
     },
     {
       icon: Video,
       title: 'Content Creation',
       description:
-        'Designing visuals, editing videos, writing captions, and preparing engaging content for each platform.',
+        'Create engaging visuals, videos, and captions for each platform.',
       color: 'from-cyan-500 to-blue-500',
     },
     {
       icon: MessageCircle,
       title: 'Publishing & Engagement',
       description:
-        'Scheduling posts, managing accounts, responding to comments/messages, and interacting with the community.',
+        'Schedule posts and interact with your audience through comments and messages.',
       color: 'from-green-500 to-cyan-500',
     },
     {
       icon: CheckCircle,
       title: 'Analytics & Optimization',
       description:
-        'Analyzing performance, tracking growth, and optimizing strategies to improve reach and engagement.',
+        'Track performance and improve strategy for better growth.',
       color: 'from-purple-500 to-cyan-500',
     },
   ];
