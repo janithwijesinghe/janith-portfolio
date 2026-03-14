@@ -91,7 +91,7 @@ export default function Hero() {
         <div className="max-w-5xl mx-auto text-center">
           <div className="mb-8 fade-in-up">
             <img
-              src="/logo.png"
+              
               alt="Janith Wijesinghe"
               className="h-20 mx-auto mb-8 animate-float"
             />
