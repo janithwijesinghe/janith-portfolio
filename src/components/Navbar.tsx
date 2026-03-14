@@ -32,12 +32,15 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+        {/* Increased navbar height */}
+        <div className="flex items-center justify-between h-24">
+
           <a href="#" className="flex items-center gap-3 group">
+            {/* 2x bigger logo */}
             <img
               src="/logo.png"
               alt="Janith Wijesinghe"
-              className="h-10 transform group-hover:scale-200 transition-transform duration-300"
+              className="h-20 transform group-hover:scale-110 transition-transform duration-300"
             />
           </a>
 
@@ -52,6 +55,7 @@ export default function Navbar() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300" />
               </a>
             ))}
+
             <a
               href="#contact"
               className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full font-semibold hover:shadow-[0_0_20px_rgba(0,217,255,0.6)] transition-all duration-300 transform hover:scale-105"
@@ -65,8 +69,13 @@ export default function Navbar() {
             className="md:hidden w-10 h-10 rounded-lg glass-panel flex items-center justify-center"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
+
         </div>
       </div>
 
@@ -84,6 +93,7 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
+
               <a
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
