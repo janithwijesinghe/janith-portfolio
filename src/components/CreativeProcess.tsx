@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Lightbulb, Palette, Video, Music, CheckCircle } from 'lucide-react';
+import { Lightbulb, Palette, Video, MessageCircle, CheckCircle } from 'lucide-react';
 
 export default function CreativeProcess() {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,31 +9,36 @@ export default function CreativeProcess() {
     {
       icon: Lightbulb,
       title: 'Strategy & Research',
-      description: 'Understanding your brand, target audience, and competitors to build an effective social media strategy.',
+      description:
+        'Understanding your brand, target audience, and competitors to build an effective social media strategy.',
       color: 'from-yellow-500 to-orange-500',
     },
     {
       icon: Palette,
       title: 'Content Planning',
-      description: 'Creating content calendars, planning posts, and developing ideas that align with your brand goals.',
+      description:
+        'Creating content calendars, planning posts, and developing ideas that align with your brand goals.',
       color: 'from-pink-500 to-purple-500',
     },
     {
       icon: Video,
       title: 'Content Creation',
-      description: 'Designing visuals, editing videos, writing captions, and preparing engaging content for each platform.',
+      description:
+        'Designing visuals, editing videos, writing captions, and preparing engaging content for each platform.',
       color: 'from-cyan-500 to-blue-500',
     },
     {
       icon: MessageCircle,
       title: 'Publishing & Engagement',
-      description: 'Scheduling posts, managing accounts, responding to comments/messages, and interacting with the community.',
+      description:
+        'Scheduling posts, managing accounts, responding to comments/messages, and interacting with the community.',
       color: 'from-green-500 to-cyan-500',
     },
     {
       icon: CheckCircle,
       title: 'Analytics & Optimization',
-      description: 'Analyzing performance, tracking growth, and optimizing strategies to improve reach and engagement.',
+      description:
+        'Analyzing performance, tracking growth, and optimizing strategies to improve reach and engagement.',
       color: 'from-purple-500 to-cyan-500',
     },
   ];
@@ -63,11 +68,22 @@ export default function CreativeProcess() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
+          <h2
+            className={`text-5xl md:text-6xl font-bold mb-6 ${
+              isVisible ? 'fade-in-up' : 'opacity-0'
+            }`}
+          >
             Creative <span className="glow-text-cyan">Process</span>
           </h2>
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            A strategic workflow designed to plan, create, and manage social media content that grows your brand and engages your audience.
+
+          <p
+            className={`text-xl text-gray-300 max-w-3xl mx-auto ${
+              isVisible ? 'fade-in-up' : 'opacity-0'
+            }`}
+            style={{ animationDelay: '0.2s' }}
+          >
+            A strategic workflow designed to plan, create, and manage social media
+            content that grows your brand and engages your audience.
           </p>
         </div>
 
@@ -78,6 +94,7 @@ export default function CreativeProcess() {
             <div className="grid lg:grid-cols-5 gap-8">
               {steps.map((step, index) => {
                 const Icon = step.icon;
+
                 return (
                   <div
                     key={index}
@@ -86,7 +103,9 @@ export default function CreativeProcess() {
                   >
                     <div className="flex flex-col items-center text-center">
                       <div className="relative mb-6">
-                        <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-[0_0_30px_rgba(0,217,255,0.4)] transform hover:scale-110 transition-transform duration-300`}>
+                        <div
+                          className={`w-24 h-24 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-[0_0_30px_rgba(0,217,255,0.4)] transform hover:scale-110 transition-transform duration-300`}
+                        >
                           <Icon className="w-12 h-12 text-white" />
                         </div>
 
@@ -110,11 +129,17 @@ export default function CreativeProcess() {
           </div>
         </div>
 
-        <div className={`mt-20 text-center ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.8s' }}>
+        <div
+          className={`mt-20 text-center ${
+            isVisible ? 'fade-in-up' : 'opacity-0'
+          }`}
+          style={{ animationDelay: '0.8s' }}
+        >
           <div className="glass-panel max-w-3xl mx-auto p-8 rounded-3xl">
             <p className="text-lg text-gray-300 leading-relaxed">
-              Every project is unique, and this process is tailored to meet your specific needs.
-              From initial concept to final delivery, I ensure quality, creativity, and timely completion.
+              Every project is unique, and this process is tailored to meet your
+              specific needs. From initial concept to final delivery, I ensure
+              quality, creativity, and timely completion.
             </p>
           </div>
         </div>
