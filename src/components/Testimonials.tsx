@@ -18,15 +18,15 @@ export default function Testimonials() {
     },
     {
       id: 2,
-     image: '/images/R2.png',
+     image: '/images/R2.PNG',
     },
     {
       id: 3,
-      image: '/images/R3.png',
+      image: '/images/R3.PNG',
     },
     {
       id: 4,
-      image: '/images/R4.png',
+      image: '/images/R4.PNG',
     },
   ];
 
