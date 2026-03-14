@@ -3,10 +3,10 @@ import { Play, ExternalLink } from 'lucide-react';
 
 type Category =
   | 'All'
-  | 'Animation'
-  | 'Video Editing'
-  | 'Motion Graphics'
-  | 'Documentaries';
+  | 'Social Media'
+  | '2D Animation'
+  | 'AI Video'
+  | 'Web Development';
 
 interface Project {
   id: number;
@@ -24,21 +24,20 @@ export default function Portfolio() {
 
   const categories: Category[] = [
     'All',
-    'Animation',
-    'Video Editing',
-    'Motion Graphics',
-    'Documentaries',
+    'Social Media',
+    '2D Animation',
+    'AI Video',
+    'Web Development',
   ];
 
   const projects: Project[] = [
-    {
-      id: 1,
-      title: 'Character Animation Reel',
-      category: 'Animation',
-      thumbnail:
-        'https://images.pexels.com/photos/7991158/pexels-photo-7991158.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: '2D character animation showcase',
-    },
+   {
+  id: 1,
+  title: 'Social media product video and post creation.',
+  category: 'Social Media',
+  thumbnail: '/images/social1-cover.png',
+  description: '2D character animation showcase',
+},
     {
       id: 2,
       title: 'Brand Commercial',
