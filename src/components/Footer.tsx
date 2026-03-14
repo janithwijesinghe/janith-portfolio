@@ -4,7 +4,12 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = ['Home', 'About', 'Services', 'Portfolio', 'Contact'];
-  const socialLinks = ['LinkedIn', 'fiverr', 'git'];
+
+  const socialLinks = [
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/janith-wijesinghe-9b7886111/' },
+    { name: 'Fiverr', url: 'https://www.fiverr.com/uniangle' },
+   
+  ];
 
   return (
     <footer className="relative py-12 overflow-hidden border-t border-gray-800">
@@ -12,28 +17,36 @@ export default function Footer() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
+          
+          {/* About Section */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img src="/logo.png" alt="Janith Wijesinghe" className="h-12" />
             </div>
+
             <p className="text-gray-400 leading-relaxed mb-6">
-              Transforming ideas into engaging digital experiences through social media strategy, 
+              Transforming ideas into engaging digital experiences through social media strategy,
               creative storytelling, video production, and technology.
             </p>
+
+            {/* Social Links */}
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
-                  key={social}
-                  href="#"
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:bg-cyan-500/20 hover:border-cyan-500 transition-all duration-300 text-xs font-semibold"
-                  aria-label={social}
+                  aria-label={social.name}
                 >
-                  {social[0]}
+                  {social.name[0]}
                 </a>
               ))}
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h3 className="text-xl font-bold mb-6 text-cyan-400">Quick Links</h3>
             <ul className="space-y-3">
@@ -51,33 +64,49 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Contact Section */}
           <div>
             <h3 className="text-xl font-bold mb-6 text-cyan-400">Get In Touch</h3>
+
             <div className="space-y-3 text-gray-400">
               <p>
-                <a href="mailto:janith@example.com" className="hover:text-cyan-400 transition-colors">
+                <a
+                  href="mailto:janithjayarisi@gmail.com"
+                  className="hover:text-cyan-400 transition-colors"
+                >
                   janithjayarisi@gmail.com
                 </a>
               </p>
+
               <p>
-                <a href="tel:+15551234567" className="hover:text-cyan-400 transition-colors">
+                <a
+                  href="tel:+94714352799"
+                  className="hover:text-cyan-400 transition-colors"
+                >
                   +94 714 352 799
                 </a>
               </p>
+
               <p className="text-sm">Available for freelance projects</p>
             </div>
           </div>
+
         </div>
 
+        {/* Bottom Footer */}
         <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            
             <p className="text-gray-400 text-sm flex items-center gap-2">
               <span>&copy; {currentYear} Janith Wijesinghe. All rights reserved.</span>
             </p>
 
             <p className="text-gray-400 text-sm flex items-center gap-2">
-              Made with <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> and creativity
+              Made with
+              <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
+              and creativity
             </p>
+
           </div>
         </div>
       </div>
