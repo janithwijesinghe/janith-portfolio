@@ -58,11 +58,12 @@ export default function CreativeProcess() {
 
   return (
     <section id="process" ref={sectionRef} className="py-24 relative overflow-hidden">
+
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#1a1a2e] to-[#0a0a0f]" />
       <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
-        
+
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
@@ -82,9 +83,10 @@ export default function CreativeProcess() {
         <div className="max-w-6xl mx-auto">
           <div className="relative">
 
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 transform -translate-y-1/2 hidden lg:block" />
+            {/* Timeline */}
+            <div className="absolute top-[110px] left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 hidden lg:block" />
 
-            <div className="grid lg:grid-cols-5 gap-8">
+            <div className="grid lg:grid-cols-5 gap-8 pt-2">
               {steps.map((step, index) => {
                 const Icon = step.icon;
 
@@ -97,7 +99,7 @@ export default function CreativeProcess() {
                     <div className="flex flex-col items-center text-center">
 
                       {/* Icon */}
-                      <div className="relative mb-6">
+                      <div className="relative mb-5">
                         <div
                           className={`w-24 h-24 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-[0_0_30px_rgba(0,217,255,0.4)] transform hover:scale-110 transition-transform duration-300`}
                         >
@@ -109,15 +111,15 @@ export default function CreativeProcess() {
                         </div>
                       </div>
 
-                      {/* Title (fixed height for alignment) */}
-                      <div className="min-h-[60px] flex items-center justify-center">
+                      {/* Title */}
+                      <div className="min-h-[56px] flex items-center justify-center">
                         <h3 className="text-xl font-bold text-white">
                           {step.title}
                         </h3>
                       </div>
 
                       {/* Description */}
-                      <p className="text-gray-400 text-sm leading-relaxed mt-2">
+                      <p className="text-gray-400 text-sm leading-relaxed mt-2 px-2">
                         {step.description}
                       </p>
 
@@ -126,6 +128,7 @@ export default function CreativeProcess() {
                 );
               })}
             </div>
+
           </div>
         </div>
 
