@@ -1,177 +1,227 @@
-import { useState, useEffect, useRef } from 'react';
-import { Play, ExternalLink } from 'lucide-react';
+import { useState } from "react";
+import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 
-type Category = 'All' | 'Animation' | 'Video Editing' | 'Motion Graphics' | 'Documentaries';
+type Category =
+  | "All"
+  | "Social Media"
+  | "YouTube Management"
+  | "2D Animation"
+  | "Web Development"
+  | "AI Video";
+
+interface Media {
+  type: "image" | "video";
+  src: string;
+}
 
 interface Project {
   id: number;
   title: string;
   category: Category;
-  thumbnail: string;
-  videoUrl?: string;
+  cover: string;
   description: string;
+  media: Media[];
 }
 
 export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState<Category>('All');
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
 
-  const categories: Category[] = ['All', 'Animation', 'Video Editing', 'Motion Graphics', 'Documentaries'];
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [mediaIndex, setMediaIndex] = useState(0);
+
+  const categories: Category[] = [
+    "All",
+    "Social Media",
+    "YouTube Management",
+    "2D Animation",
+    "Web Development",
+    "AI Video",
+  ];
 
   const projects: Project[] = [
     {
       id: 1,
-      title: 'Character Animation Reel',
-      category: 'Animation',
-      thumbnail: 'https://images.pexels.com/photos/7991158/pexels-photo-7991158.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: '2D character animation showcase',
+      title: "Social Media Campaign",
+      category: "Social Media",
+      cover: "/project3-cover.png",
+      description: "Social media strategy and content production.",
+      media: [
+        { type: "image", src: "/social1-cover.png" },
+        { type: "image", src: "/project2-cover.png" },
+      ],
     },
+
     {
       id: 2,
-      title: 'Brand Commercial',
-      category: 'Video Editing',
-      thumbnail: 'https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Professional commercial video production',
+      title: "YouTube Channel Management",
+      category: "YouTube Management",
+      cover: "/project4-cover.png",
+      description: "YouTube channel growth and analytics optimization.",
+      media: [
+        { type: "video", src: "/youtube-sample.mp4" },
+      ],
     },
+
     {
       id: 3,
-      title: 'Logo Animation',
-      category: 'Motion Graphics',
-      thumbnail: 'https://images.pexels.com/photos/6953875/pexels-photo-6953875.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Dynamic logo reveal animation',
+      title: "Web Video Content",
+      category: "Social Media",
+      cover: "/project5-cover.png",
+      description: "Content production for digital marketing.",
+      media: [
+        { type: "video", src: "/web-video.mp4" },
+      ],
     },
+
     {
       id: 4,
-      title: 'Wildlife Documentary',
-      category: 'Documentaries',
-      thumbnail: 'https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Nature documentary visual storytelling',
+      title: "AI Video Production",
+      category: "AI Video",
+      cover: "/project6-cover.png",
+      description: "AI assisted video storytelling and production.",
+      media: [
+        { type: "video", src: "/ai-video.mp4" },
+      ],
     },
+
     {
       id: 5,
-      title: '3D Product Visualization',
-      category: 'Animation',
-      thumbnail: 'https://images.pexels.com/photos/5191390/pexels-photo-5191390.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: '3D product animation and rendering',
-    },
-    {
-      id: 6,
-      title: 'Music Video Edit',
-      category: 'Video Editing',
-      thumbnail: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Creative music video editing',
-    },
-    {
-      id: 7,
-      title: 'Explainer Animation',
-      category: 'Motion Graphics',
-      thumbnail: 'https://images.pexels.com/photos/7991158/pexels-photo-7991158.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Engaging explainer video graphics',
-    },
-    {
-      id: 8,
-      title: 'Cultural Documentary',
-      category: 'Documentaries',
-      thumbnail: 'https://images.pexels.com/photos/5912357/pexels-photo-5912357.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Cultural heritage documentary',
+      title: "Website Development",
+      category: "Web Development",
+      cover: "/web1.png",
+      description: "Full stack web development projects.",
+      media: [
+        { type: "image", src: "/web1.png" },
+        { type: "image", src: "/web2.png" },
+        { type: "image", src: "/web3.png" },
+      ],
     },
   ];
 
-  const filteredProjects = activeCategory === 'All'
-    ? projects
-    : projects.filter((project) => project.category === activeCategory);
+  const filtered =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
+  const nextMedia = () => {
+    if (!activeProject) return;
+    setMediaIndex((mediaIndex + 1) % activeProject.media.length);
+  };
+
+  const prevMedia = () => {
+    if (!activeProject) return;
+    setMediaIndex(
+      (mediaIndex - 1 + activeProject.media.length) %
+        activeProject.media.length
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  };
 
   return (
-    <section id="portfolio" ref={sectionRef} className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#1a1a2e] to-[#0a0a0f]" />
+    <section id="portfolio" className="py-24 relative">
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className={`text-5xl md:text-6xl font-bold mb-6 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}>
-            Featured <span className="glow-text-cyan">Portfolio</span>
-          </h2>
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto mb-12 ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            Explore a collection of my best work across animation, video editing, and motion graphics.
-          </p>
+      <div className="container mx-auto px-6">
 
-          <div className={`flex flex-wrap justify-center gap-4 ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  activeCategory === category
-                    ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white shadow-[0_0_20px_rgba(0,217,255,0.5)]'
-                    : 'glass-panel text-gray-300 hover:text-white hover:border-cyan-500'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+        <h2 className="text-5xl font-bold text-center mb-12">
+          Featured <span className="text-cyan-400">Portfolio</span>
+        </h2>
+
+        {/* CATEGORY FILTER */}
+
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((c) => (
+            <button
+              key={c}
+              onClick={() => setActiveCategory(c)}
+              className={`px-6 py-3 rounded-full ${
+                activeCategory === c
+                  ? "bg-cyan-500 text-white"
+                  : "glass-panel"
+              }`}
+            >
+              {c}
+            </button>
+          ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {filteredProjects.map((project, index) => (
+        {/* PROJECT GRID */}
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {filtered.map((project) => (
             <div
               key={project.id}
-              className={`group relative overflow-hidden rounded-2xl ${isVisible ? 'scale-in' : 'opacity-0'}`}
-              style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+              className="cursor-pointer group"
+              onClick={() => {
+                setActiveProject(project);
+                setMediaIndex(0);
+              }}
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
+              <div className="rounded-xl overflow-hidden relative">
 
-              <div className="relative bg-[#1a1a2e] rounded-2xl overflow-hidden">
-                <div className="aspect-video relative overflow-hidden">
-                  <img
-                    src={project.thumbnail}
-                    alt={project.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
+                <img
+                  src={project.cover}
+                  className="w-full h-60 object-cover group-hover:scale-110 transition"
+                />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      <Play className="w-16 h-16 text-cyan-400" />
-                    </div>
-                  </div>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100">
+                  <Play className="w-14 h-14 text-white" />
                 </div>
 
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
-                      {project.category}
-                    </span>
-                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-cyan-400 transition-colors" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm">
-                    {project.description}
-                  </p>
-                </div>
               </div>
+
+              <h3 className="text-xl font-bold mt-4">{project.title}</h3>
+              <p className="text-gray-400 text-sm">{project.description}</p>
+
             </div>
           ))}
         </div>
+
       </div>
+
+      {/* PROJECT VIEWER */}
+
+      {activeProject && (
+        <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+
+          <button
+            className="absolute top-8 right-8"
+            onClick={() => setActiveProject(null)}
+          >
+            <X className="w-8 h-8 text-white" />
+          </button>
+
+          <button
+            className="absolute left-10"
+            onClick={prevMedia}
+          >
+            <ChevronLeft className="w-10 h-10 text-white" />
+          </button>
+
+          <button
+            className="absolute right-10"
+            onClick={nextMedia}
+          >
+            <ChevronRight className="w-10 h-10 text-white" />
+          </button>
+
+          <div className="max-w-5xl w-full">
+
+            {activeProject.media[mediaIndex].type === "image" ? (
+              <img
+                src={activeProject.media[mediaIndex].src}
+                className="w-full rounded-xl"
+              />
+            ) : (
+              <video
+                src={activeProject.media[mediaIndex].src}
+                controls
+                className="w-full rounded-xl"
+              />
+            )}
+
+          </div>
+        </div>
+      )}
     </section>
   );
 }
