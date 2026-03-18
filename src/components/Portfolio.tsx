@@ -1,7 +1,5 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { Play, ExternalLink } from 'lucide-react';
-import { useNavigate } from "react-router-dom";
 
 type Category =
   | 'All'
@@ -23,8 +21,6 @@ export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState<Category>('All');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  const navigate = useNavigate(); // ⭐ navigation hook
 
   const categories: Category[] = [
     'All',
@@ -182,8 +178,7 @@ export default function Portfolio() {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              onClick={() => navigate(`/project/${project.id}`)}  // ⭐ open project page
-              className={`group relative overflow-hidden rounded-2xl cursor-pointer ${
+              className={`group relative overflow-hidden rounded-2xl ${
                 isVisible ? 'scale-in' : 'opacity-0'
               }`}
               style={{ animationDelay: `${0.5 + index * 0.1}s` }}
@@ -200,7 +195,9 @@ export default function Portfolio() {
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <Play className="w-16 h-16 text-cyan-400" />
+                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <Play className="w-16 h-16 text-cyan-400" />
+                    </div>
                   </div>
                 </div>
 
@@ -231,4 +228,3 @@ export default function Portfolio() {
     </section>
   );
 }
- 
