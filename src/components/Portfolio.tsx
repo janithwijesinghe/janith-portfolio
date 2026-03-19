@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Play, ExternalLink } from 'lucide-react';
 
 type Category =
@@ -21,6 +22,7 @@ export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState<Category>('All');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const categories: Category[] = [
     'All',
@@ -104,19 +106,21 @@ export default function Portfolio() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.2 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
+
+  // ✅ FIXED NAVIGATION
+  const handleProjectClick = (projectId: number) => {
+    navigate(`/project/${projectId}`, {
+      state: { from: '/portfolio' },
+    });
+  };
 
   return (
     <section
@@ -127,10 +131,7 @@ export default function Portfolio() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#1a1a2e] to-[#0a0a0f]" />
 
       <div className="container mx-auto px-6 relative z-10">
-
-        {/* Header */}
         <div className="text-center mb-16">
-
           <h2
             className={`text-5xl md:text-6xl font-bold mb-6 ${
               isVisible ? 'fade-in-up' : 'opacity-0'
@@ -149,7 +150,6 @@ export default function Portfolio() {
             and digital content creation.
           </p>
 
-          {/* Category Buttons */}
           <div
             className={`flex flex-wrap justify-center gap-4 ${
               isVisible ? 'fade-in-up' : 'opacity-0'
@@ -172,13 +172,12 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`group relative overflow-hidden rounded-2xl ${
+              onClick={() => handleProjectClick(project.id)}
+              className={`group relative overflow-hidden rounded-2xl cursor-pointer ${
                 isVisible ? 'scale-in' : 'opacity-0'
               }`}
               style={{ animationDelay: `${0.5 + index * 0.1}s` }}
@@ -186,7 +185,6 @@ export default function Portfolio() {
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
 
               <div className="relative bg-[#1a1a2e] rounded-2xl overflow-hidden">
-
                 <div className="aspect-video relative overflow-hidden">
                   <img
                     src={project.thumbnail}
@@ -195,9 +193,7 @@ export default function Portfolio() {
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      <Play className="w-16 h-16 text-cyan-400" />
-                    </div>
+                    <Play className="w-16 h-16 text-cyan-400" />
                   </div>
                 </div>
 
@@ -218,11 +214,9 @@ export default function Portfolio() {
                     {project.description}
                   </p>
                 </div>
-
               </div>
             </div>
           ))}
-
         </div>
       </div>
     </section>
